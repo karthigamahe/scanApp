@@ -1,89 +1,68 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  TouchableHighlight,
-  Image,
-  Alert,
-  ImageBackground
+  TouchableHighlight
 } from 'react-native';
+import { Container, Header, Content, Card, CardItem, Text, Body, Left, Button,Right } from 'native-base';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class Login extends Component {
+import { Router, Scene, Stack } from 'react-native-router-flux';
 
-  constructor(props) {
-    super(props);
-    state = {
-      email   : '',
-      password: '',
-    }
-  }
+import { Actions } from 'react-native-router-flux';
+
+
+
+
+export default class Home extends Component {
+
+  
 
   onClickListener = (viewId) => {
-    
-    Alert.alert("Alert", "Button pressed "+viewId);
+    Actions.Tab()
   }
 
-  render() {
-    return (
-        <ImageBackground source={{uri: "https://pbs.twimg.com/media/C-5y_TMXYAIDm0x.jpg"}} style={{width: '100%', height: '100%'}}>
 
-      <View style={styles.container}>
-          <Text>Home page</Text>
-      </View>
-        </ImageBackground>
+  render() {
+
+  const processList = [
+    {
+        requestNum: '5678999',
+        date : '2020-12-11' 
+     },
+     {
+        requestNum: '78787878',
+        date : '2020-12-10' 
+     }
+
+  ]
+    return (
+       <Container>
+        <Content>
+        {
+          processList.map((process, index) => ( 
+          <TouchableHighlight  onPress={() => this.onClickListener('login')}>
+            <Card>
+                <CardItem>
+                  <Body>
+                    <Text>
+                    {process.requestNum}
+                    </Text>
+                  </Body>
+                </CardItem>
+                 <CardItem>
+                <Left>
+                    <Text> {process.date}</Text>
+                </Left>
+                <Right>
+                  <Text>Pending</Text>
+                </Right>
+              </CardItem>          
+            </Card>
+          </TouchableHighlight>
+
+          ))
+      }       
+        </Content>
+      </Container>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  inputContainer: {
-      borderBottomColor: '#F5FCFF',
-      backgroundColor: '#FFFFFF',
-      borderRadius:30,
-      borderBottomWidth: 1,
-      width:250,
-      height:45,
-      marginBottom:20,
-      flexDirection: 'row',
-      alignItems:'center'
-  },
-  inputs:{
-      height:45,
-      marginLeft:16,
-      borderBottomColor: '#FFFFFF',
-      flex:1,
-  },
-  inputIcon:{
-    width:30,
-    height:30,
-    marginLeft:15,
-    justifyContent: 'center'
-  },
-  buttonContainer: {
-    height:45,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom:20,
-    width:250,
-    borderRadius:30,
-  },
-  loginButton: {
-    backgroundColor: "#00b5ec",
-  },
-  loginText: {
-    color: 'white',
-  },
-    backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover', // or 'stretch'
-  }
-});
