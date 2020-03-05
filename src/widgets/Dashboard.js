@@ -14,7 +14,7 @@ export default class Blog extends Component {
     super(props);
     this.state = {
       data: [
-        {id:1, title: "Dashboard", description:"Enter to view the pending and completed request for relationship id "},
+        {id:1, title: "Dashboard",time:'2020-03-05 07:60', description:"Enter to view the pending and completed request for the relationship id "},
       ]
     };
   }
@@ -51,15 +51,15 @@ export default class Blog extends Component {
                     <View style={styles.socialBarSection}>
                       <TouchableOpacity style={styles.socialBarButton}>
                         {/* <Image style={styles.icon} source={{uri: 'https://png.icons8.com/material/96/2ecc71/visible.png'}}/> */}
-                        <Text>Pending&nbsp;</Text>
-                        <Text style={styles.socialBarLabel}>78</Text>
+                        <Text style={styles.footer}>Pending&nbsp;</Text>
+                        <Text style={styles.footer}>78</Text>
                       </TouchableOpacity>
                     </View>
                     <View style={styles.socialBarSection}>
                       <TouchableOpacity style={styles.socialBarButton}>
                         {/* <Image style={styles.icon} source={{uri: 'https://png.icons8.com/ios-glyphs/75/2ecc71/comments.png'}}/> */}
-                        <Text>Completed&nbsp;</Text>
-                        <Text style={styles.socialBarLabel}>25</Text>
+                        <Text style={styles.footer}>Completed&nbsp;</Text>
+                        <Text style={styles.footer}>25</Text>
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     marginTop:10,
   },
   list: {
-    paddingHorizontal: 17,
+    paddingHorizontal: 10,
   },
   separator: {
     marginTop: 10,
@@ -92,7 +92,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 4,
     marginVertical: 2,
-    backgroundColor:"white"
+    backgroundColor:"#2e7d32",
+    borderRadius:10,
   },
   cardHeader: {
     paddingVertical: 12,
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderBottomLeftRadius: 1,
     borderBottomRightRadius: 1,
-    backgroundColor:"#EEEEEE",
+    backgroundColor:"#1b5e20",
   },
   cardImage:{
     flex: 1,
@@ -123,19 +124,21 @@ const styles = StyleSheet.create({
   },
   /******** card components **************/
   title:{
-    fontSize:18,
+    fontSize:25,
     flex:1,
+    fontWeight:"bold",
+    color:"white"
   }, 
   description:{
     fontSize:15,
-    color:"#888",
+    color:"white",
     flex:1,
     marginTop:5,
     marginBottom:5,
   },
   time:{
     fontSize:13,
-    color: "#808080",
+    color: "white",
     marginTop: 5
   },
   icon: {
@@ -147,6 +150,9 @@ const styles = StyleSheet.create({
     height:15,
     marginTop:5,
     marginRight:5
+  },
+  footer:{
+    color:"white"
   },
   timeContainer:{
     flexDirection:'row'
@@ -164,9 +170,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   socialBarlabel: {
-    marginLeft: 8,
-    alignSelf: 'flex-end',
-    justifyContent: 'center',
+    //marginLeft: 8,
+    //alignSelf: 'flex-end',
+    //justifyContent: 'center',
+    color:'#bf360c'
   },
   socialBarButton:{
     flexDirection: 'row',
