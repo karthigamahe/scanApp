@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { CardModal } from "react-native-card-modal";
+import CardList from "react-native-card-animated-modal";
 import {
   StyleSheet,
   Text,
@@ -8,8 +10,12 @@ import {
   TouchableHighlight,
   Image,
   Alert,
-  ImageBackground
+  ImageBackground,
 } from 'react-native';
+
+import AnimatedCard from './widgets/AnimatedCard';
+import Dashboard from './widgets/Dashboard';
+
 
 export default class Login extends Component {
 
@@ -28,12 +34,11 @@ export default class Login extends Component {
 
   render() {
     return (
-        <ImageBackground source={{uri: "https://pbs.twimg.com/media/C-5y_TMXYAIDm0x.jpg"}} style={{width: '100%', height: '100%'}}>
-
-      <View style={styles.container}>
-          <Text>Home page</Text>
-      </View>
-        </ImageBackground>
+      <ImageBackground source={{uri: "https://pbs.twimg.com/media/C-5y_TMXYAIDm0x.jpg"}} style={{width: '100%', height: '100%'}}>
+        {/* <View style={styles.container}><Text>Home page</Text></View> */}
+        <Dashboard></Dashboard>
+        <AnimatedCard></AnimatedCard>
+      </ImageBackground>
     );
   }
 }
@@ -41,7 +46,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    //justifyContent: 'center',
     alignItems: 'center',
   },
   inputContainer: {
