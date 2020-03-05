@@ -13,6 +13,8 @@ import {
   ScrollView
 } from 'react-native';
 
+import { Actions } from 'react-native-router-flux';
+
 export default class Craigslist extends Component {
 
   constructor(props) {
@@ -31,7 +33,7 @@ export default class Craigslist extends Component {
   }
 
   clickEventListener = (item) => {
-    Alert.alert('Message', 'Item clicked. '+item.name);
+    Actions.Tab()
   }
 
   render() {

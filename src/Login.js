@@ -16,7 +16,7 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     state = {
-      email   : '',
+      username   : '',
       password: '',
     }
   }
@@ -33,10 +33,10 @@ export default class Login extends Component {
           <View style={styles.inputContainer}>
           <Image style={styles.inputIcon} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4DmfmVewn6grwsrTlQLRSp_mLySGj_ADwgSX_rfQmZSK7tUe6'}}/>
           <TextInput style={styles.inputs}
-              placeholder="Email"
+              placeholder="UserName"
               keyboardType="email-address"
               underlineColorAndroid='transparent'
-              onChangeText={(email) => this.setState({email})}/>
+              onChangeText={(email) => this.setState({username})}/>
         </View>
         
         <View style={styles.inputContainer}>

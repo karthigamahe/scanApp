@@ -1,38 +1,50 @@
 import React, { Component } from 'react';
-import { CardModal } from "react-native-card-modal";
-import CardList from "react-native-card-animated-modal";
 import {
+  TouchableHighlight,
   StyleSheet,
-  Text,
-  View,
+    View,
   TextInput,
   Button,
-  TouchableHighlight,
   Image,
   Alert,
   ImageBackground,
 } from 'react-native';
+import { Container, Header, Content, Card, CardItem, Text, Body, Left,Right } from 'native-base';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
+import { Router, Scene, Stack } from 'react-native-router-flux';
 import AnimatedCard from './widgets/AnimatedCard';
 import Dashboard from './widgets/Dashboard';
 
+import { Actions } from 'react-native-router-flux';
 
-export default class Login extends Component {
 
-  constructor(props) {
-    super(props);
-    state = {
-      email   : '',
-      password: '',
-    }
-  }
+
+
+
+
+export default class Home extends Component {
+
+  
 
   onClickListener = (viewId) => {
-    
-    Alert.alert("Alert", "Button pressed "+viewId);
+    Actions.Tab()
   }
 
+
   render() {
+
+  const processList = [
+    {
+        requestNum: '5678999',
+        date : '2020-12-11' 
+     },
+     {
+        requestNum: '78787878',
+        date : '2020-12-10' 
+     }
+
+  ]
     return (
       <ImageBackground blurRadius={3} source={{uri: "https://pbs.twimg.com/media/C-5y_TMXYAIDm0x.jpg"}} style={{width: '100%', height: '100%'}}>
         {/* <View style={styles.container}><Text>Home page</Text></View> */}
