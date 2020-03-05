@@ -13,11 +13,13 @@ const NewRoute = (props) =>
 {
   const onPressScan = async () => {
     console.log('scanmodule')
-
+ 
     if (Platform.OS === 'android') {
         try {
             const image = await RNDocScanner.getDocumentCrop(true)
             console.log(image)
+            console.log('caliing image')
+            Actions.ImageViewer({filePath:image})
             } catch (err) {
             console.log(err)
             }
