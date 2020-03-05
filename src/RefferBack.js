@@ -23,7 +23,7 @@ export default function RefferBack() {
 const styles = StyleSheet.create({
 txRefText: {
   fontSize : 100
-}
+},
 container: {
     flex: 1,
     justifyContent: 'center',
