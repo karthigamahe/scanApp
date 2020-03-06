@@ -9,10 +9,7 @@ import {
   Alert,
   ImageBackground,
 } from 'react-native';
-import { Container, Header, Content, Card, CardItem, Text, Body, Left,Right } from 'native-base';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { Router, Scene, Stack } from 'react-native-router-flux';
 import AnimatedCard from './widgets/AnimatedCard';
 import Dashboard from './widgets/Dashboard';
 
