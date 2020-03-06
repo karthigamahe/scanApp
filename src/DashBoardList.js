@@ -5,7 +5,9 @@ import { Container, Header, Content, Card, CardItem,  Body, Left, Button,Right }
 import { Actions } from 'react-native-router-flux';
 import {RNDocScanner} from 'rn-doc-scanner'
 
-
+onClickListener = (viewId) => {
+    Actions.RefferBack()
+}
 const processRefferBackList = [
 {
     requestNum: 'SCW4875656565578999121',
@@ -28,8 +30,10 @@ export default function DashBoardList(props) {
     <Container>
         <Content>
         {
+
           processRefferBackList.map((process, index) => ( 
-          <TouchableHighlight >
+                                  <TouchableHighlight  onPress={() => onClickListener('login')}>
+
             <Card style={styles.cardContainer}>
                 <CardItem>
                   <Body>
@@ -47,9 +51,11 @@ export default function DashBoardList(props) {
             </Right>
               </CardItem>          
             </Card>
-          </TouchableHighlight>
+                                </TouchableHighlight>
+
 
           ))
+
       }       
         </Content>
     </Container>
