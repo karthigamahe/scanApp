@@ -8,6 +8,10 @@ import {
   FlatList,
 } from 'react-native';
 
+onClickListener = (viewId) => {
+    Actions.DasboardList()
+}
+
 export default class Blog extends Component {
 
   constructor(props) {
@@ -18,6 +22,8 @@ export default class Blog extends Component {
       ]
     };
   }
+
+
 
   render() {
     return (
@@ -49,17 +55,17 @@ export default class Blog extends Component {
                 <View style={styles.cardFooter}>
                   <View style={styles.socialBarContainer}>
                     <View style={styles.socialBarSection}>
-                      <TouchableOpacity style={styles.socialBarButton}>
+                      <TouchableOpacity style={styles.socialBarButton} onPress={() => onClickListener('login')}>
                         {/* <Image style={styles.icon} source={{uri: 'https://png.icons8.com/material/96/2ecc71/visible.png'}}/> */}
                         <Text style={styles.footer}>In Progress&nbsp;</Text>
                         <Text style={styles.footer}>78</Text>
                       </TouchableOpacity>
                     </View>
                     <View style={styles.socialBarSection}>
-                      <TouchableOpacity style={styles.socialBarButton}>
+                      <TouchableOpacity style={styles.socialBarButton} onPress={() => onClickListener('login')}>
                         {/* <Image style={styles.icon} source={{uri: 'https://png.icons8.com/ios-glyphs/75/2ecc71/comments.png'}}/> */}
-                        <Text style={styles.footer}>Refer Back&nbsp;</Text>
-                        <Text style={styles.footer}>25</Text>
+                        <Text style={styles.footer}>Completed&nbsp;</Text>
+                        <Text style={styles.footer}>32</Text>
                       </TouchableOpacity>
                     </View>
                   </View>

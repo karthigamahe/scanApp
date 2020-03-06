@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { View, StyleSheet, Dimensions, TouchableHighlight,Text,TouchableOpacity, Platform } from 'react-native';
+import { View, StyleSheet, Dimensions, TouchableHighlight,Text,TouchableOpacity, Platform, ImageBackground} from 'react-native';
 import { Container, Header, Content, Card, CardItem,  Body, Left, Button,Right } from 'native-base';
 
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { Actions } from 'react-native-router-flux';
-import { RNDocScanner } from 'rn-doc-scanner'
+import {RNDocScanner} from 'rn-doc-scanner'
 
 
 
@@ -41,66 +41,70 @@ const processPendingList = [
 {
     requestNum: 'SCW4875656565578999121',
     date : '2020-12-11',
-    status : 'pending'
+    status : 'In Progress'
  },
  {
     requestNum: 'SC10856566557899978787878',
     date : '2020-12-10',
-    status : 'pending'
+    status : 'In Progress'
  }
 
 ]
 
-const processCompletedList = [
+const processRefferBackList = [
 {
     requestNum: 'SCW4875656565578999121',
     date : '2020-12-11',
-    status : 'completed'
+    status : 'pending'
  },
  {
     requestNum: 'SC10856566557899978787878',
     date : '2020-12-10' ,
-     status : 'completed'
+     status : 'pending'
  }
 
 ]
-const PendingRoute = () => (
-<Container>
-    <Content>
-    {
-      processPendingList.map((process, index) => ( 
-      <TouchableHighlight  onPress={() => onClickListener('login')}>
-        <Card>
-            <CardItem>
-              <Body>
-                <Text>
-                {process.requestNum}
-                </Text>
-              </Body>
-            </CardItem>
-             <CardItem>
-            <Left>
-                <Text> {process.date}</Text>
-            </Left>
-            <Right>
-              <Text>Pending</Text>
-            </Right>
-          </CardItem>          
-        </Card>
-      </TouchableHighlight>
+const RefferBackRoute = () => (
+<ImageBackground blurRadius={3} source={{uri: "https://pbs.twimg.com/media/C-5y_TMXYAIDm0x.jpg"}} style={{width: '100%', height: '100%'}}>
 
-      ))
-  }       
-    </Content>
-</Container>
+    <Container>
+        <Content>
+        {
+          processRefferBackList.map((process, index) => ( 
+          <TouchableHighlight  onPress={() => onClickListener('login')}>
+            <Card style={styles.cardContainer}>
+                <CardItem>
+                  <Body>
+                    <Text>
+                    {process.requestNum}
+                    </Text>
+                  </Body>
+                </CardItem>
+                 <CardItem>
+                <Left>
+                    <Text> {process.date}</Text>
+                </Left>
+                <Right>
+                  <Text>Pending</Text>
+                </Right>
+              </CardItem>          
+            </Card>
+          </TouchableHighlight>
+
+          ))
+      }       
+        </Content>
+    </Container>
+</ImageBackground>
+
 );
- 
-const CompleteRoute = () => (
+
+const InProgressRoute = () => (
   <Container>
     <Content>
     {
-      processCompletedList.map((process, index) => ( 
-      <TouchableHighlight  onPress={() => onClickListener('login')}>
+      processPendingList.map((process, index) => ( 
+      <TouchableHighlight >
         <Card>
             <CardItem>
               <Body>
@@ -125,6 +129,8 @@ const CompleteRoute = () => (
     </Content>
 </Container>
 );
+
+
 const initialLayout = { width: Dimensions.get('window').width };
 
 onClickListener = (viewId) => {
@@ -135,14 +141,14 @@ export default function TabMenus() {
   const [routes] = React.useState([
     { key: 'first', title: 'New' },
     { key: 'second', title: 'Reffer Back' },
-    { key: 'third', title: 'Complete' },
+    { key: 'third', title: 'In Progress' },
+
   ]);
  
   const renderScene = SceneMap({
     first: NewRoute,
-    second: PendingRoute,
-    third : CompleteRoute,
-  });
+    second: RefferBackRoute,
+    third : InProgressRoute  });
  
   return (
     <TabView

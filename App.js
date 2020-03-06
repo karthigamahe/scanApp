@@ -19,6 +19,7 @@ import Home from './src/Home';
 import TabMenus from './src/TabMenus';
 import RefferBack from './src/RefferBack';
 import ImageViewer from './src/ImageViewer';
+import DasboardList from './src/DasboardList'
 
 const myButton = (
   <Icon
@@ -54,8 +55,8 @@ export default class App extends Component<Props> {
         <Scene key="Home" component={Home} title="Home"/>
         <Scene key="Tab" component={TabMenus} title="Tab"/>
         <Scene key="RefferBack" component={RefferBack} title="Refferal"/>
-
         <Scene key="ImageViewer" component={ImageViewer} title="ImageViewer"/>
+        <Scene key="DasboardList" component={DasboardList} title="DasboardList"/>
 
 
       </Scene>

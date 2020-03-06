@@ -1,8 +1,22 @@
 import * as React from 'react';
 import { View, StyleSheet, Dimensions, TouchableHighlight,Text} from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import {RNDocScanner} from 'rn-doc-scanner'
 
+const onPressScan = async () => {
+    console.log('scanmodule')
  
-
+    if (Platform.OS === 'android') {
+        try {
+            const image = await RNDocScanner.getDocumentCrop(true)
+            console.log(image)
+            console.log('caliing image')
+            Actions.ImageViewer({filePath:image})
+            } catch (err) {
+            console.log(err)
+            }
+        }
+    }
  
 export default function RefferBack() {
  
@@ -13,7 +27,7 @@ export default function RefferBack() {
         <Text><Text style={styles.labelText}>Status</Text>: Pending for PAN Card Approval</Text>
 
         <Text style={styles.scanText}>Click here to scan document</Text>
-        <TouchableHighlight style={[styles.buttonContainer, styles.scanButton]} onPress={() => this.onClickListener('scan')}>
+        <TouchableHighlight style={[styles.buttonContainer, styles.scanButton]} onPress={() => onPressScan('scan')}>
             <Text style={styles.scanButtonText}>Scan</Text>
         </TouchableHighlight>
     </View>
@@ -27,19 +41,25 @@ labelText: {
 },
 container: {
   marginTop : 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+
+
+
 },
 scene: {
     flex: 1,
 },
 scanText : {
-      color: 'grey',
+  marginTop : 80,
+        color: 'grey',
   },
 buttonContainer: {
     height:45,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    width:100,
+   width:100,
     borderRadius : 10
 },
 scanButton: {
