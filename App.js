@@ -33,7 +33,7 @@ const myButton = (
 
 
 
-export default class App extends Component<Props> {
+export default class App extends Component {
 
   closeControlPanel = () => {
     this._drawer.close()
@@ -57,9 +57,9 @@ export default class App extends Component<Props> {
         <Scene key="Home" component={Home} title="Home"/>
         <Scene key="AccDetails" component={AccountDetails} title="Data Entry"/>
         <Scene key="Tab" component={TabMenus} title="Action"/>
-        <Scene key="RefferBack" component={RefferBack} title="RefferBack"/>
         <Scene key="ImageViewer" component={ImageViewer} title="Verification"/>
         <Scene key="Congratulation" component={Congratulation} title="Congratulation"/>
+        <Scene key="RefferBack" component={RefferBack} title="Refferal"/>
       </Scene>
   </Router>
   );

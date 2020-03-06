@@ -9,7 +9,8 @@ export default function RefferBack() {
   return (   
        <View style={styles.container}>
 
-        <Text><Text style={styles.txRefText}>TxRefNo</Text>: SCW4871233908721212</Text>
+        <Text><Text style={styles.labelText}>Txrefno</Text>: SCW4871233908721212</Text>
+        <Text><Text style={styles.labelText}>Status</Text>: Pending for PAN Card Approval</Text>
 
         <Text style={styles.scanText}>Click here to scan document</Text>
         <TouchableHighlight style={[styles.buttonContainer, styles.scanButton]} onPress={() => this.onClickListener('scan')}>
@@ -21,14 +22,11 @@ export default function RefferBack() {
 }
  
 const styles = StyleSheet.create({
-txRefText: {
-  fontSize : 100
+labelText: {
+  fontSize : 20
 },
 container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom : 120
+  marginTop : 20,
 },
 scene: {
     flex: 1,
@@ -41,7 +39,6 @@ buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop : 20,
     width:100,
     borderRadius : 10
 },
