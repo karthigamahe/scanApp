@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 onClickListener = (viewId) => {
-    Actions.DasboardList()
+    Actions.DashBoardList()
 }
 
 export default class Blog extends Component {

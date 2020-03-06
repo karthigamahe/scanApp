@@ -87,7 +87,7 @@ const RefferBackRoute = () => (
                     <Text> {process.date}</Text>
                 </Left>
                 <Right>
-                  <Text>Pending</Text>
+                  <Text>{process.status}</Text>
                 </Right>
               </CardItem>          
             </Card>
@@ -120,7 +120,7 @@ const InProgressRoute = () => (
                 <Text> {process.date}</Text>
             </Left>
             <Right>
-              <Text>Pending</Text>
+              <Text>{process.status}</Text>
             </Right>
           </CardItem>          
         </Card>

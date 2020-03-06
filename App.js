@@ -19,7 +19,7 @@ import Home from './src/Home';
 import TabMenus from './src/TabMenus';
 import RefferBack from './src/RefferBack';
 import ImageViewer from './src/ImageViewer';
-import DasboardList from './src/DasboardList'
+import DashBoardList from './src/DashBoardList'
 import AccountDetails from './src/AccountDetails';
 
 import Congratulation from './src/Congratulation';
@@ -62,7 +62,7 @@ export default class App extends Component {
         <Scene key="Congratulation" component={Congratulation} title="Congratulation"/>
         <Scene key="RefferBack" component={RefferBack} title="Refferal"/>
         <Scene key="ImageViewer" component={ImageViewer} title="ImageViewer"/>
-        <Scene key="DasboardList" component={DasboardList} title="DasboardList"/>
+        <Scene key="DashBoardList" component={DashBoardList} title="DashBoardList"/>
 
 
       </Scene>
