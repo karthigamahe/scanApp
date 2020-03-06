@@ -59,7 +59,7 @@ export default class Viewer extends Component {
   render() {
         return (
           <>
-          <Text>Preview:</Text>
+          <Text style={styles.preview}>Preview</Text>
           <Image 
           style={ styles.image }
           resizeMode='contain'
@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
       width:300,
       height:45,
       marginBottom:20,
+      marginLeft:60,
       flexDirection: 'row',
       alignItems:'center',
       shadowColor: "#808080",
@@ -113,7 +114,6 @@ const styles = StyleSheet.create({
       },
       shadowOpacity: 0.25,
       shadowRadius: 3.84,
-
       elevation: 5,
     },
     inputs:{
@@ -132,12 +132,22 @@ const styles = StyleSheet.create({
     image: {
       flex: 1
     },
+    preview:{
+      fontSize:30,
+      alignItems:'baseline',
+      padding:10,
+      marginLeft:130,
+      color:"#2e7d32",
+      fontWeight:"bold",
+      justifyContent: 'center',
+    },
     buttonContainer: {
       height:45,
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
       marginBottom:20,
+      marginLeft:60,
       width:300,
       borderRadius:30,
       backgroundColor:'transparent'
