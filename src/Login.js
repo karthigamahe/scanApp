@@ -27,7 +27,7 @@ export default class Login extends Component {
     if (this.state.userId === "" || this.state.password==="") {
       Alert.alert('Enter user ID/password')
     }   
-    else if (this.state.userId === '555' && this.state.password==='aaa') {
+    else if (this.state.userId === '123' && this.state.password==='123') {
       return Actions.Home();
     }
     else{
