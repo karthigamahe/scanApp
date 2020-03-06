@@ -18,9 +18,11 @@ export default class AccountDetails extends Component {
   constructor(props) {
     super(props);
     state = {
+            item:props.item,
             mobileno:'',
-            accNo:''
+            accNo:'',
         }
+        //Alert.alert("Enjoy  ",props.item.name)
   }
 
   onClickListener = () => {
@@ -32,6 +34,7 @@ export default class AccountDetails extends Component {
   render() {
     return (
     <ImageBackground blurRadius={3} source={{uri: "https://pbs.twimg.com/media/C-5y_TMXYAIDm0x.jpg"}} style={{width: '100%', height: '100%'}}>
+        
       <View style={styles.container}>
         <Text style={styles.details}> Enter the Details</Text>
         <View style={styles.inputContainer}>

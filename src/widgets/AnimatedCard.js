@@ -33,7 +33,7 @@ export default class Craigslist extends Component {
   }
 
   clickEventListener = (item) => {
-    Actions.AccDetails()
+    Actions.AccDetails({item})
   }
 
   render() {
