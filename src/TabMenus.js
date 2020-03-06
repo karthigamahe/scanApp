@@ -150,8 +150,8 @@ export default function TabMenus(props) {
  
   const renderScene = SceneMap({
     first: () => <NewRoute mobileNo={props.mobileno} />,
-    second: PendingRoute,
-    third : CompleteRoute,
+    second: RefferBackRoute,
+    third : InProgressRoute,
   });
  
   return (
