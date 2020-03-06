@@ -5,14 +5,17 @@ import {
   View,
   TouchableOpacity,
   Image,
-  FlatList,
+  FlatList
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
-onClickListener = (viewId) => {
-    Actions.DashBoardList()
-}
 
 export default class Blog extends Component {
+
+  onClickListener = (status) => {
+    Actions.DashBoardList(status)
+}
+
 
   constructor(props) {
     super(props);
@@ -55,14 +58,14 @@ export default class Blog extends Component {
                 <View style={styles.cardFooter}>
                   <View style={styles.socialBarContainer}>
                     <View style={styles.socialBarSection}>
-                      <TouchableOpacity style={styles.socialBarButton} onPress={() => onClickListener('login')}>
+                      <TouchableOpacity style={styles.socialBarButton} onPress={() => {this.onClickListener('In Progress')}}>
                         {/* <Image style={styles.icon} source={{uri: 'https://png.icons8.com/material/96/2ecc71/visible.png'}}/> */}
                         <Text style={styles.footer}>In Progress&nbsp;</Text>
                         <Text style={styles.footer}>78</Text>
                       </TouchableOpacity>
                     </View>
                     <View style={styles.socialBarSection}>
-                      <TouchableOpacity style={styles.socialBarButton} onPress={() => onClickListener('login')}>
+                      <TouchableOpacity style={styles.socialBarButton} onPress={() => {this.onClickListener('Completed')}}>
                         {/* <Image style={styles.icon} source={{uri: 'https://png.icons8.com/ios-glyphs/75/2ecc71/comments.png'}}/> */}
                         <Text style={styles.footer}>Completed&nbsp;</Text>
                         <Text style={styles.footer}>32</Text>

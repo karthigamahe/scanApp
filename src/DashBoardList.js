@@ -19,8 +19,9 @@ const processRefferBackList = [
  }
 
 ]
-export default function DashBoardList() {
- 
+export default function DashBoardList(props) {
+    const status =props.data;
+
   return (   
       <ImageBackground blurRadius={3} source={{uri: "https://pbs.twimg.com/media/C-5y_TMXYAIDm0x.jpg"}} style={{width: '100%', height: '100%'}}>
 
@@ -41,6 +42,9 @@ export default function DashBoardList() {
                 <Left>
                     <Text> {process.date}</Text>
                 </Left>
+                  <Right>
+              <Text>{status}</Text>
+            </Right>
               </CardItem>          
             </Card>
           </TouchableHighlight>
