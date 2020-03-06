@@ -18,6 +18,7 @@ import Login from './src/Login';
 import Home from './src/Home';
 import TabMenus from './src/TabMenus';
 import RefferBack from './src/RefferBack';
+import ProfileInfo from './src/RefferBack';
 
 const myButton = (
   <Icon
@@ -52,7 +53,7 @@ export default class App extends Component<Props> {
         <Scene key="scarlet" component={Login} title="Login" initial/>
         <Scene key="Home" component={Home} title="Home"/>
         <Scene key="Tab" component={TabMenus} title="Tab"/>
-        <Scene key="RefferBack" component={RefferBack} title="RefferBack"/>
+        <Scene key="RefferBack" component={RefferBack} title="Refferal"/>
 
       </Scene>
   </Router>

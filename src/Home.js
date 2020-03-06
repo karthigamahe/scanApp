@@ -25,11 +25,7 @@ import { Actions } from 'react-native-router-flux';
 
 export default class Home extends Component {
 
-  
 
-  onClickListener = (viewId) => {
-    Actions.Tab()
-  }
 
 
   render() {
