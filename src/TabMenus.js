@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { View, StyleSheet, Dimensions, TouchableHighlight,Text,TouchableOpacity, Platform, ImageBackground} from 'react-native';
+import { View, StyleSheet, Dimensions, TouchableHighlight,Text,TouchableOpacity, Platform, ImageBackground,Alert} from 'react-native';
 import { Container, Header, Content, Card, CardItem,  Body, Left, Button,Right } from 'native-base';
 
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { Actions } from 'react-native-router-flux';
-import {RNDocScanner} from 'rn-doc-scanner'
+
+import { TextInput } from 'react-native-gesture-handler';
 
 
 
@@ -19,7 +20,7 @@ const NewRoute = (props) =>
             const image = await RNDocScanner.getDocumentCrop(true)
             console.log(image)
             console.log('caliing image')
-            Actions.ImageViewer({filePath:image})
+            Actions.ImageViewer({filePath:image,mobileno:props.mobileNo})
             } catch (err) {
             console.log(err)
             }
@@ -27,6 +28,7 @@ const NewRoute = (props) =>
     }
     return (
     <View style={styles.container}>
+      <Text> Mobile number : {props.mobileNo}</Text>
         <Text style={styles.scanText}>Click here to scan document</Text>
         <TouchableOpacity  style={[styles.buttonContainer, styles.scanButton]} onPress={onPressScan}>
             <Text style={styles.scanButtonText}>Scan</Text>
@@ -136,7 +138,8 @@ const initialLayout = { width: Dimensions.get('window').width };
 onClickListener = (viewId) => {
     Actions.RefferBack()
 }
-export default function TabMenus() {
+export default function TabMenus(props) {
+ // Alert.alert("Alert", "Button pressed "+props.mobileno);
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     { key: 'first', title: 'New' },
@@ -146,9 +149,10 @@ export default function TabMenus() {
   ]);
  
   const renderScene = SceneMap({
-    first: NewRoute,
-    second: RefferBackRoute,
-    third : InProgressRoute  });
+    first: () => <NewRoute mobileNo={props.mobileno} />,
+    second: PendingRoute,
+    third : CompleteRoute,
+  });
  
   return (
     <TabView

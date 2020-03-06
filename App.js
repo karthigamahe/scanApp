@@ -20,6 +20,9 @@ import TabMenus from './src/TabMenus';
 import RefferBack from './src/RefferBack';
 import ImageViewer from './src/ImageViewer';
 import DasboardList from './src/DasboardList'
+import AccountDetails from './src/AccountDetails';
+
+import Congratulation from './src/Congratulation';
 
 const myButton = (
   <Icon
@@ -31,7 +34,7 @@ const myButton = (
 
 
 
-export default class App extends Component<Props> {
+export default class App extends Component {
 
   closeControlPanel = () => {
     this._drawer.close()
@@ -51,9 +54,12 @@ export default class App extends Component<Props> {
 
       <Scene key="root">
 
-        <Scene key="scarlet" component={Login} title="Login" initial/>
+        <Scene key="scarlet" component={Login} title="ScaLT" initial/>
         <Scene key="Home" component={Home} title="Home"/>
-        <Scene key="Tab" component={TabMenus} title="Tab"/>
+        <Scene key="AccDetails" component={AccountDetails} title="Data Entry"/>
+        <Scene key="Tab" component={TabMenus} title="Action"/>
+        <Scene key="ImageViewer" component={ImageViewer} title="Verification"/>
+        <Scene key="Congratulation" component={Congratulation} title="Congratulation"/>
         <Scene key="RefferBack" component={RefferBack} title="Refferal"/>
         <Scene key="ImageViewer" component={ImageViewer} title="ImageViewer"/>
         <Scene key="DasboardList" component={DasboardList} title="DasboardList"/>
