@@ -25,7 +25,7 @@ export default function RefferBack() {
 
         <Text><Text style={styles.labelText}>Txrefno</Text>: SCW4871233908721212</Text>
         <Text><Text style={styles.labelText}>Status</Text>: Pending for PAN Card Approval</Text>
-
+         <Text><Text style={styles.labelText}>DcoumentType</Text>: Application Docs, Customer service letter</Text>
         <Text style={styles.scanText}>Click here to scan document</Text>
         <TouchableHighlight style={[styles.buttonContainer, styles.scanButton]} onPress={() => onPressScan('scan')}>
             <Text style={styles.scanButtonText}>Scan</Text>

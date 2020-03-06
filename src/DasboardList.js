@@ -19,7 +19,7 @@ const processRefferBackList = [
  }
 
 ]
-export default function RefferBack() {
+export default function DasboardList() {
  
   return (   
       <ImageBackground blurRadius={3} source={{uri: "https://pbs.twimg.com/media/C-5y_TMXYAIDm0x.jpg"}} style={{width: '100%', height: '100%'}}>
