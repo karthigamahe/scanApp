@@ -1,19 +1,40 @@
 import * as React from 'react';
-import { View, StyleSheet, Dimensions, TouchableHighlight,Text} from 'react-native';
+import { View, StyleSheet, Dimensions, TouchableHighlight,Text,TouchableOpacity, Platform } from 'react-native';
 import { Container, Header, Content, Card, CardItem,  Body, Left, Button,Right } from 'native-base';
 
 import { TabView, SceneMap } from 'react-native-tab-view';
 import { Actions } from 'react-native-router-flux';
+import { RNDocScanner } from 'rn-doc-scanner'
 
-const NewRoute = () => (
 
+
+const NewRoute = (props) => 
+
+{
+  const onPressScan = async () => {
+    console.log('scanmodule')
+ 
+    if (Platform.OS === 'android') {
+        try {
+            const image = await RNDocScanner.getDocumentCrop(true)
+            console.log(image)
+            console.log('caliing image')
+            Actions.ImageViewer({filePath:image})
+            } catch (err) {
+            console.log(err)
+            }
+        }
+    }
+    return (
     <View style={styles.container}>
         <Text style={styles.scanText}>Click here to scan document</Text>
-        <TouchableHighlight style={[styles.buttonContainer, styles.scanButton]} onPress={() => this.onClickListener('scan')}>
+        <TouchableOpacity  style={[styles.buttonContainer, styles.scanButton]} onPress={onPressScan}>
             <Text style={styles.scanButtonText}>Scan</Text>
-        </TouchableHighlight>
+        </TouchableOpacity >
     </View>
-);
+    )
+}
+
 
 
 const processPendingList = [

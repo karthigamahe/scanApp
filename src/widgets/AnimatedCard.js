@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import {Icon } from 'native-base';
 import {
   StyleSheet,
   Text,
@@ -21,12 +23,11 @@ export default class Craigslist extends Component {
       modalVisible:false,
       userSelected:[],
       data: [
-       // {id:1,  name: "Dashboard",   image:"https://img.icons8.com/clouds/100/000000/groups.png",           count:124.711},
-        {id:1,  name: "Address Change request", image:"https://img.icons8.com/color/100/000000/real-estate.png",       count:234.722},
-        {id:2,  name: "Mobile No Change request", image:"https://img.icons8.com/color/100/000000/find-matching-job.png", count:324.723} ,
-        {id:3,  name: "Pan Change request", image:"https://img.icons8.com/clouds/100/000000/employee-card.png",    count:154.573} ,
-        {id:4,  name: "Aadhar number addition", image:"https://img.icons8.com/color/100/000000/land-sales.png",        count:124.678} ,
-        {id:5,  name: "Passport entry", image:"https://img.icons8.com/color/100/000000/land-sales.png",        count:124.678} ,
+        {id:1,  name: "Address Change request", desc:"This requires customers account number and mobile number to proceed change request"},
+        {id:2,  name: "Mobile No Change request",desc:"This requires customers account number and mobile number to proceed change request"} ,
+        {id:3,  name: "Pan Change request", desc:"This requires customers account number and mobile number to proceed change request"} ,
+        {id:4,  name: "Aadhar number addition",desc:"This requires customers account number and mobile number to proceed change request"} ,
+        {id:5,  name: "Passport entry", desc:"This requires customers account number and mobile number to proceed change request"} ,
       ]
     };
   }
@@ -48,10 +49,10 @@ export default class Craigslist extends Component {
           renderItem={({item}) => {
           return (
             <TouchableOpacity style={styles.card} onPress={() => {this.clickEventListener(item)}}>
-              <Image style={styles.image} source={{uri: item.image}}/>
+              <Image style={styles.image} source={{uri: 'https://img.icons8.com/color/48/000000/activity-history.png'}}/>
               <View style={styles.cardContent}>
                 <Text style={styles.name}>{item.name}</Text>
-                <Text style={styles.count}>{item.count}</Text>
+                <Text style={styles.desc}>{item.desc}</Text>
                 {/* <TouchableOpacity style={styles.followButton} onPress={()=> this.clickEventListener(item)}>
                   <Text style={styles.followButtonText}>Request Now</Text>  
                 </TouchableOpacity> */}
@@ -73,14 +74,15 @@ const styles = StyleSheet.create({
   },
   cardContent: {
     marginLeft:5,
-    marginTop:10
+    marginTop:10,
   },
   image:{
-    width:90,
-    height:90,
-    borderRadius:30,
+    //paddingTop:10,
+    width:50,
+    height:40,
+  //  borderRadius:30,
     borderWidth:2,
-    borderColor:"#ebf0f7"
+   //borderColor:"#ebf0f7"
   },
 
   card:{
@@ -92,27 +94,26 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.37,
     shadowRadius: 7.49,
     elevation: 12,
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: 8,
+    marginRight: 8,
     marginTop:20,
-    backgroundColor:"white",
+    backgroundColor:"#1769aa",
     padding: 10,
+    paddingBottom:40,
     flexDirection:'row',
     borderRadius:10,
   },
 
   name:{
-    fontSize:18,
+    fontSize:20,
     flex:1,
-    alignSelf:'center',
-    color:"#3399ff",
+    color:"#eceff1",
     fontWeight:'bold'
   },
-  count:{
+  desc:{
     fontSize:14,
     flex:1,
-    alignSelf:'center',
-    color:"#6666ff"
+    color:"white"
   },
   followButton: {
     marginTop:10,

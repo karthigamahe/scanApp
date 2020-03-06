@@ -42,8 +42,7 @@ export default class Home extends Component {
 
   ]
     return (
-
-      <ImageBackground source={{uri: "https://pbs.twimg.com/media/C-5y_TMXYAIDm0x.jpg"}} style={{width: '100%', height: '100%'}}>
+      <ImageBackground blurRadius={3} source={{uri: "https://pbs.twimg.com/media/C-5y_TMXYAIDm0x.jpg"}} style={{width: '100%', height: '100%'}}>
         {/* <View style={styles.container}><Text>Home page</Text></View> */}
         <Dashboard></Dashboard>
         <AnimatedCard></AnimatedCard>
