@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import {
   StyleSheet,
   Text,
@@ -16,13 +17,22 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     state = {
-      username   : '',
-      password: '',
+      userId:'',
+      password:''
     }
+   
   }
 
-  onClickListener = (viewId) => {
-    Actions.Home()
+  onClickListener = (viewId) => {  
+    if (this.state.userId === "" || this.state.password==="") {
+      Alert.alert('Enter user ID/password')
+    }   
+    else if (this.state.userId === '555' && this.state.password==='aaa') {
+      return Actions.Home();
+    }
+    else{
+      Alert.alert('Authentication Failed')
+    }   
   }
 
   render() {
@@ -33,10 +43,10 @@ export default class Login extends Component {
           <View style={styles.inputContainer}>
           <Image style={styles.inputIcon} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4DmfmVewn6grwsrTlQLRSp_mLySGj_ADwgSX_rfQmZSK7tUe6'}}/>
           <TextInput style={styles.inputs}
-              placeholder="UserName"
+              placeholder="User Id"
               keyboardType="email-address"
               underlineColorAndroid='transparent'
-              onChangeText={(email) => this.setState({username})}/>
+              onChangeText={(userId) => this.setState({userId})}/>
         </View>
         
         <View style={styles.inputContainer}>
