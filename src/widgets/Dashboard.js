@@ -21,7 +21,7 @@ export default class Blog extends Component {
     super(props);
     this.state = {
       data: [
-        {id:1, title: "Dashboard",time:'2020-03-05 07:60', description:"Enter to view the pending and completed request for the relationship id "},
+        {id:1, title: "Dashboard",time:'2020-03-06 03:00', description:"Enter to view the pending and completed request for the relationship id "},
       ]
     };
   }

@@ -4,7 +4,7 @@ import {
   Text,
   View,
   TextInput,
-  Button,
+  Button,Keyboard,
   TouchableOpacity,
   Image,
   Alert,
@@ -17,46 +17,96 @@ export default class AccountDetails extends Component {
 
   constructor(props) {
     super(props);
-    state = {
+    this.state = {
             item:props.item,
             mobileno:'',
             accNo:'',
+            clientFound:false,
+            clients: [
+              {
+                key:0,
+                accNo:"1234567890",
+                accName:"Albin Jenith",
+                mob:"8148871377"
+              },{
+                key:1,
+                accNo:"1122334455",
+                accName:"Vikram Senthil",
+                mob:"8870597212"
+              },{
+                key:2,
+                accNo:"2233445566",
+                accName:"Sakthivel Kumar",
+                mob:"9659592420"
+              },{
+                key:3,
+                accNo:"3344556677",
+                accName:"Karthiga B",
+                mob:"8344122778"
+              },{
+                key:4,
+                accNo:"5566778899",
+                accName:"Elavarasn AP",
+                mob:"7845232153"
+              }
+            ]
+
         }
-        //Alert.alert("Enjoy  ",props.item.name)
   }
 
-  onClickListener = () => {
-   //Alert.alert("Alert", "Button pressed "+this.state.mobileno);
-   Actions.Tab(this.state);
+  onClickVerify = () => {
+    Keyboard.dismiss();
+    var found=false;
+    this.state.clients.map((client)=>{
+    
+      if (client.accNo === this.state.accNo){
+        found=true;
+        //this.state.mobileno= client.mob;
+        this.setState({clientFound:true,encymob:client.mob.substring(7,10),mobileno:client.mob, accName:client.accName})
+      }
+    });
 
+    if(!found){
+      Alert.alert("Info", "Customer not found.");
+    }
+
+  }
+
+  onClickNext = () => {
+     Actions.Tab(this.state);
   }
 
   render() {
     return (
     <ImageBackground blurRadius={3} source={{uri: "https://pbs.twimg.com/media/C-5y_TMXYAIDm0x.jpg"}} style={{width: '100%', height: '100%'}}>
         
-      <View style={styles.container}>
-        <Text style={styles.details}> Enter the Details</Text>
+    <View style={styles.container}>
+    <Text style={styles.details}> {this.state.item.name}</Text>
         <View style={styles.inputContainer}>
           <TextInput style={styles.inputs}
               placeholder="Account number"
               keyboardType="phone-pad"
               underlineColorAndroid='transparent'
-              onChangeText={(accNo) => this.setState({accNo:accNo})}/>
+              disabled={this.state.clientFound}
+              onChangeText={(accNo) => this.setState({accNo:accNo,clientFound:false})}/>
           <Image style={styles.inputIcon} source={{uri: 'https://img.icons8.com/android/24/000000/user.png'}}/>
         </View>
-        <View style={styles.inputContainer}>
-          <TextInput style={styles.inputs}
-              placeholder="Reg Mobile number"
-              keyboardType="phone-pad"
-              underlineColorAndroid='transparent'
-              onChangeText={(mobileno) => this.setState({mobileno:mobileno})}/>
-          <Image style={styles.inputIcon} source={{uri: "https://img.icons8.com/android/24/000000/touchscreen-smartphone.png"}}/>
+        
+        {this.state.clientFound?<View>
+        <View style={styles.info}>
+          <Text style={styles.infodetails}>Account Number : {this.state.accNo}</Text>
+          <Text style={styles.infodetails}>Account Holder Name : {this.state.accName}</Text>
+          <Text style={styles.infodetails}>Mobile Number : XXXXXXX{this.state.encymob}</Text>
         </View>
-        <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener()}>
-        {/* disabled={(this.state.mobileno && this.state.mobileno!=='')?false:true} */}
+        <View style={styles.nextBox}>
+        <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} 
+        onPress={() => this.onClickNext()}>
           <Text style={styles.loginText}>Next</Text>
-        </TouchableOpacity>
+        </TouchableOpacity></View>
+        </View>: <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} 
+        onPress={() => this.onClickVerify()}>
+          <Text style={styles.loginText}>Verify</Text>
+        </TouchableOpacity>}
       </View>
       </ImageBackground>
     );
@@ -68,15 +118,30 @@ const resizeMode = 'center';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    //justifyContent: 'center',
     alignItems: 'center',
-   //backgroundColor: '#DCDCDC',
+  },
+  nextBox:{
+    padding:10
   },
   details:{
-    fontSize:20,
-    alignItems:'baseline',
-    padding:10,
+    fontSize:25,
+    paddingTop:50,
+    paddingBottom:50,
     color:"white",
+    fontWeight:"bold"
+  },
+  info:{
+    borderRadius:10,
+    borderColor:"white",
+    borderWidth:2,
+    padding:20,
+    backgroundColor:"#e0e0e0"
+  },
+  infodetails:{
+    fontSize:15,
+    padding:2,
+    //color:"white",
     fontWeight:"bold"
   },
   inputContainer: {

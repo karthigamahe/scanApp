@@ -6,6 +6,7 @@ import { TabView, SceneMap } from 'react-native-tab-view';
 import { Actions } from 'react-native-router-flux';
 
 import { TextInput } from 'react-native-gesture-handler';
+import {RNDocScanner} from 'rn-doc-scanner'
 
 
 

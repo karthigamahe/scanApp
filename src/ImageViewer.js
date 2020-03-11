@@ -39,15 +39,15 @@ export default class Viewer extends Component {
 
 
   onClickListener = () => {
-     Actions.Congratulation();
+     
       fetch('https://2factor.in/API/V1/b29d214d-5f09-11ea-9fa5-0200cd936042/SMS/VERIFY/'+this.state.sessionId+'/'+this.state.otp)
       .then(response => response.json())
       .then((responseJson)=> {
     
-      if (responseJson.Status === 'Success'){
+      if (responseJson.Status === "Error"){
+        Alert.alert(responseJson.Details);
+      } else {
         Actions.Congratulation();
-      }else{
-        Alert.alert("OTP "+responseJson.Details);
       }
 
       })

@@ -16,7 +16,7 @@ export default class Login extends Component {
 
   constructor(props) {
     super(props);
-    state = {
+    this.state = {
       userId:'',
       password:''
     }
@@ -24,10 +24,10 @@ export default class Login extends Component {
   }
 
   onClickListener = (viewId) => {  
-    if (this.state.userId === "" || this.state.password==="") {
-      Alert.alert('Enter user ID/password')
-    }   
-    else if (this.state.userId === '123' && this.state.password==='123') {
+    if (this.state.userId === "" || this.state.password=== "") {
+     Alert.alert('Warning','Enter user ID/password.')
+   }  
+   else if (this.state.userId === '5500056' && this.state.password==='123') {
       return Actions.Home();
     }
     else{
@@ -44,7 +44,7 @@ export default class Login extends Component {
           <Image style={styles.inputIcon} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4DmfmVewn6grwsrTlQLRSp_mLySGj_ADwgSX_rfQmZSK7tUe6'}}/>
           <TextInput style={styles.inputs}
               placeholder="User Id"
-              keyboardType="email-address"
+              keyboardType="phone-pad"
               underlineColorAndroid='transparent'
               onChangeText={(userId) => this.setState({userId})}/>
         </View>

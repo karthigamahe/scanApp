@@ -24,7 +24,7 @@ export default class Congratulation extends Component {
     return (
       <View style={styles.container}>
         <Image style={styles.icon} source={{uri: "https://png.icons8.com/good-quality/ultraviolet/200/3498db"}} />
-        <Text style={styles.title}>Congratulation, your request initiated successfully</Text>
+        <Text style={styles.title}>Request initiated successfully</Text>
         <Text style={styles.description}>The transcation initiated and information will be verfied by the operations. Thank you !!!! </Text>
         <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.clickListener('home')}>
           <Text style={styles.buttonText}>Continue</Text>

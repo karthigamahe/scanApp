@@ -5,9 +5,7 @@ import { Container, Header, Content, Card, CardItem,  Body, Left, Button,Right }
 import { Actions } from 'react-native-router-flux';
 import {RNDocScanner} from 'rn-doc-scanner'
 
-onClickListener = (viewId) => {
-    Actions.RefferBack()
-}
+
 const processRefferBackList = [
 {
     requestNum: 'SCW4875656565578999121',
@@ -21,6 +19,10 @@ const processRefferBackList = [
  }
 
 ]
+
+onClickListener = (viewId) => {
+  Actions.RefferBack()
+}
 export default function DashBoardList(props) {
     const status =props.data;
 
