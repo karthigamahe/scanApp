@@ -64,13 +64,6 @@ export default class Blog extends Component {
                         <Text style={styles.footer}>78</Text>
                       </TouchableOpacity>
                     </View>
-                    <View style={styles.socialBarSection}>
-                      <TouchableOpacity style={styles.socialBarButton} onPress={() => {this.onClickListener('Completed')}}>
-                        {/* <Image style={styles.icon} source={{uri: 'https://png.icons8.com/ios-glyphs/75/2ecc71/comments.png'}}/> */}
-                        <Text style={styles.footer}>Completed&nbsp;</Text>
-                        <Text style={styles.footer}>32</Text>
-                      </TouchableOpacity>
-                    </View>
                   </View>
                 </View>
               </View>

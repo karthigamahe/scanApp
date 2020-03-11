@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet, Dimensions, TouchableHighlight,Text} from 'react-native';
+import { View, StyleSheet, Dimensions, TouchableHighlight,Text,Image} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import {RNDocScanner} from 'rn-doc-scanner'
 
@@ -25,11 +25,11 @@ export default function RefferBack() {
 
         <Text><Text style={styles.labelText}>Txrefno</Text>: SCW4871233908721212</Text>
         <Text><Text style={styles.labelText}>Status</Text>: Pending for PAN Card Approval</Text>
-         <Text><Text style={styles.labelText}>DcoumentType</Text>: Application Docs, Customer service letter</Text>
-        <Text style={styles.scanText}>Click here to scan document</Text>
-        <TouchableHighlight style={[styles.buttonContainer, styles.scanButton]} onPress={() => onPressScan('scan')}>
-            <Text style={styles.scanButtonText}>Scan</Text>
+         <Text><Text style={styles.labelText}>DocumentType</Text>: Application Document</Text>
+        <TouchableHighlight style={[styles.buttonContainer]} onPress={() => onPressScan('scan')}>
+          <Image style={styles.scanImage} source={require('./images/scan-icon.png')} />
         </TouchableHighlight>
+
     </View>
 
   );
@@ -37,14 +37,12 @@ export default function RefferBack() {
  
 const styles = StyleSheet.create({
 labelText: {
-  fontSize : 20
+  fontSize : 20,
+
 },
 container: {
   marginTop : 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-
-
+  marginLeft : 10    
 
 },
 scene: {
@@ -55,17 +53,14 @@ scanText : {
         color: 'grey',
   },
 buttonContainer: {
-    height:45,
     flexDirection: 'row',
-    justifyContent: 'center',
     alignItems: 'center',
-   width:100,
-    borderRadius : 10
 },
-scanButton: {
-    backgroundColor: "#4BB543",
-},
-scanButtonText: {
-    color: 'white',
+scanImage: {
+   marginTop : 420,
+    marginLeft: 310,
+  width: 70,
+  height:70,
+  borderRadius: 150/2,
 },
 });
